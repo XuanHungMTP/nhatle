@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yêu thương gửi Mẹ và Chị 💗</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffe1eb, #fff5e8, #ffd4e3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  color: #9d3659;
+  padding: 25px 12px;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255,255,255,.88);
+  border: 2px solid #ffc0d4;
+  border-radius: 28px;
+  padding: 30px 23px;
+  text-align: center;
+  box-shadow: 0 15px 45px #d66c8c35;
+  position: relative;
+  z-index: 2;
+}
+
+.rose {
+  font-size: 64px;
+  animation: sway 2s infinite alternate ease-in-out;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.25;
+  color: #d64e7b;
+  margin: 12px 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #b65b79;
+  line-height: 1.8;
+}
+
+button {
+  border: none;
+  background: linear-gradient(135deg, #f779a4, #d94c7c);
+  color: white;
+  border-radius: 30px;
+  padding: 14px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 16px;
+  box-shadow: 0 5px 15px #e7789c55;
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#wishes {
+  display: none;
+  text-align: left;
+  line-height: 1.85;
+  font-size: 15px;
+  animation: appear 1s ease;
+}
+
+#wishes h2 {
+  color: #d64e7b;
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+.message {
+  background: #fff0f5;
+  padding: 15px;
+  border-radius: 17px;
+  margin: 14px 0;
+  border-left: 4px solid #f28bad;
+}
+
+.signature {
+  text-align: center;
+  font-style: italic;
+  color: #d64e7b;
+  font-size: 17px;
+  margin-top: 18px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: fly 5s linear forwards;
+  z-index: 1;
+}
+
+@keyframes fly {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(8deg); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="rose">🌹</div>
+
+  <p class="subtitle">Happy Vietnamese Women's Day</p>
+  <h1>Chúc Mừng<br>Ngày 20/10 💗</h1>
+
+  <p class="subtitle">
+    Gửi đến hai người phụ nữ tuyệt vời nhất<br>
+    trong trái tim con/em... 🌷
+  </p>
+
+  <div style="font-size:27px; margin:18px">💐 💝 💐</div>
+
+  <button id="openBtn" onclick="openCard()">
+    💌 Mở món quà yêu thương
+  </button>
+
+  <div id="wishes">
+    <h2>🌸 Gửi Mẹ yêu và Chị yêu 🌸</h2>
+
+    <div class="message">
+      <strong>💖 Gửi Mẹ kính yêu:</strong><br>
+      Con cảm ơn mẹ vì đã luôn yêu thương,
+      chăm sóc và hy sinh cho gia đình mình.
+      Con mong mẹ luôn mạnh khỏe, bình an,
+      lúc nào cũng vui vẻ và nở nụ cười thật tươi.
+      Mong mọi điều tốt đẹp nhất sẽ đến với mẹ.
+      Con yêu mẹ nhiều lắm! ❤️
+    </div>
+
+    <div class="message">
+      <strong>🎀 Gửi Chị thân yêu:</strong><br>
+      Chúc chị ngày 20/10 thật nhiều niềm vui,
+      luôn xinh đẹp, hạnh phúc và gặp thật nhiều
+      may mắn. Mong chị luôn tự tin, làm được
+      những điều mình mong muốn và luôn được
+      yêu thương thật nhiều. Em thương chị! 💕
+    </div>
+
+    <p style="text-align:center">
+      🌷 Chúc hai người luôn rạng rỡ như hoa,<br>
+      ngọt ngào như nắng và hạnh phúc mỗi ngày! 🌷
+    </p>
+
+    <div class="signature">
+      Con yêu Mẹ và Em yêu Chị rất nhiều! 💗
+    </div>
+  </div>
+</div>
+
+<script>
+function openCard() {
+  document.getElementById("wishes").style.display = "block";
+
+  const btn = document.getElementById("openBtn");
+  btn.textContent = "💖 Món quà dành riêng cho Mẹ và Chị";
+  btn.disabled = true;
+  btn.style.opacity = "0.8";
+
+  // Hiệu ứng trái tim bay
+  for (let i = 0; i < 35; i++) {
+    setTimeout(createHeart, i * 100);
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["💗", "💕", "💖", "🌸", "✨"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 22) + "px";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6500);
+}
+</script>
+
+</body>
+</html>
