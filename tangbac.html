@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp gửi bác 🌸</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #fff5f7, #ffd6e4);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      padding: 35px 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid white;
+      border-radius: 22px;
+      box-shadow: 0 8px 30px #d98aa540;
+      animation: appear 1s ease;
+      z-index: 2;
+    }
+
+    .flower {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #c6537d;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #72515e;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 25px;
+      background: #e994b2;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #d9799d;
+      transform: translateY(-2px);
+    }
+
+    #message {
+      display: none;
+      margin-top: 22px;
+      padding: 15px;
+      background: #fff0f5;
+      border-radius: 15px;
+      color: #a64d70;
+      line-height: 1.9;
+      animation: appear 0.7s ease;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="flower">🌷</div>
+
+    <h1>Gửi bác</h1>
+
+    <p>
+      Chúc bác luôn mạnh khỏe,<br>
+      vui vẻ và bình an mỗi ngày.<br>
+      Mong mọi việc đều thuận lợi<br>
+      và có thật nhiều niềm vui trong cuộc sống.
+    </p>
+
+    <button onclick="showMessage()">
+      Một lời chúc nhỏ 🌸
+    </button>
+
+    <div id="message">
+      Chúc bác luôn gặp nhiều may mắn,<br>
+      công việc thuận lợi, gia đình hạnh phúc<br>
+      và mỗi ngày đều có những điều vui vẻ.
+      <br><br>
+      Chúc bác mọi điều tốt đẹp!
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+
+      for (let i = 0; i < 15; i++) {
+        setTimeout(createHeart, i * 150);
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = Math.random() > 0.5 ? "♡" : "🌸";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 12) + "px";
+      heart.style.color = "#d9799d";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7500);
+    }
+
+    setInterval(createHeart, 1400);
+  </script>
+</body>
+</html>
